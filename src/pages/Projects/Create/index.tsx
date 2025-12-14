@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import api from '../../../services/api';
 
 export function CreateProjectPage() {
@@ -28,7 +28,12 @@ export function CreateProjectPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Criar Novo Projeto</h1>
+      <div className="mb-6">
+        <Link to="/projects" className="link link-hover text-sm mb-2">
+          &larr; Voltar para todos os projetos
+        </Link>
+        <h1 className="text-4xl font-bold">Criar Novo Projeto</h1>
+      </div>
 
       <div className="card bg-base-100 shadow-xl max-w-lg">
         <div className="card-body">
@@ -50,16 +55,8 @@ export function CreateProjectPage() {
 
             <div className="form-control mt-6">
               <button
-                type="button"
-                className="btn btn-outline"
-                onClick={() => navigate('/projects')}
-                disabled={loading}
-              >
-                Cancelar
-              </button>
-              <button
                 type="submit"
-                className="btn btn-primary ml-2"
+                className="btn btn-primary"
                 disabled={loading}
               >
                 {loading ? <span className="loading loading-spinner"></span> : 'Salvar'}
