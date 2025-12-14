@@ -4,6 +4,7 @@ import { DashboardPage } from '../pages/Dashboard';
 import { ProtectedRoute } from '../components/ProtectedRoute';
 import { ProjectsListPage } from '../pages/Projects/List';
 import { CreateProjectPage } from '../pages/Projects/Create';
+import { ProjectDetailPage } from '../pages/Projects/Detail';
 
 export function AppRoutes() {
   return (
@@ -14,6 +15,7 @@ export function AppRoutes() {
           <Route index element={<Navigate to="/projects" replace />} />
           <Route path="/projects" element={<ProjectsListPage />} />
           <Route path="/projects/create" element={<CreateProjectPage />} />
+          <Route path="/projects/:id" element={<ProjectDetailPage />} />
         </Route>
       </Route>
     </Routes>
