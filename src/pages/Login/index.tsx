@@ -29,7 +29,7 @@ export function LoginPage() {
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row lg:gap-24">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Plan Marketing Project Manager</h1>
+          <h1 className="text-5xl font-bold">Project Manager</h1>
           <p className="py-6">
             Faça o login para gerenciar seus projetos de marketing de forma eficiente e organizada.
           </p>

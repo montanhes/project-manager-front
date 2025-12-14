@@ -123,7 +123,7 @@ export function ProjectsListPage() {
       <h1 className="text-2xl font-bold mb-4">Projetos</h1>
       <div className="flex justify-end mb-4">
         <button className="btn btn-primary" onClick={() => navigate('/projects/create')}>
-          Criar Novo Projeto
+          Novo Projeto
         </button>
       </div>
 
