@@ -5,6 +5,7 @@ import { ProtectedRoute } from '../components/ProtectedRoute';
 import { ProjectsListPage } from '../pages/Projects/List';
 import { CreateProjectPage } from '../pages/Projects/Create';
 import { ProjectDetailPage } from '../pages/Projects/Detail';
+import { CreateTaskPage } from '../pages/Tasks/Create';
 
 export function AppRoutes() {
   return (
@@ -16,6 +17,7 @@ export function AppRoutes() {
           <Route path="/projects" element={<ProjectsListPage />} />
           <Route path="/projects/create" element={<CreateProjectPage />} />
           <Route path="/projects/:id" element={<ProjectDetailPage />} />
+          <Route path="/projects/:projectId/tasks/create" element={<CreateTaskPage />} />
         </Route>
       </Route>
     </Routes>
