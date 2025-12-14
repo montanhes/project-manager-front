@@ -61,9 +61,9 @@ export function ProjectDetailPage() {
   useEffect(() => {
     if (location.state?.successMessage) {
       setToast({ message: location.state.successMessage, type: 'success' });
-      navigate(location.pathname, { replace: true, state: null });
+      navigate(location.pathname, { replace: true, state: {} });
     }
-  }, [location.state, navigate]);
+  }, [location.state, navigate, location.pathname]);
 
   useEffect(() => {
     if (toast) {

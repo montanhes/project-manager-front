@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, useLocation, useNavigate, Link } from 'react-router-dom';
+import { useSearchParams, useLocation, useNavigate } from 'react-router-dom';
 import api from '../../../services/api';
 
 interface Project {
@@ -45,9 +45,9 @@ export function ProjectsListPage() {
   useEffect(() => {
     if (location.state?.successMessage) {
       setToastMessage(location.state.successMessage);
-      navigate(location.pathname, { replace: true, state: null });
+      navigate(location.pathname, { replace: true, state: {} });
     }
-  }, [location.state, navigate]);
+  }, [location.state, navigate, location.pathname]);
 
   useEffect(() => {
     if (toastMessage) {
