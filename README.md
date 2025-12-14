@@ -1,73 +1,99 @@
-# React + TypeScript + Vite
+# Project Manager Front-end
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o front-end para a aplicação Project Manager, construído com React, TypeScript e Vite.
 
-Currently, two official plugins are available:
+## Arquitetura e Dependências
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este projeto faz parte de uma arquitetura que separa o front-end (interface do usuário) do back-end (lógica de negócios e banco de dados). Essa separação visa melhorar a organização, a manutenibilidade e a escalabilidade, permitindo que cada parte seja desenvolvida e implantada de forma independente.
 
-## React Compiler
+Para que esta interface funcione corretamente, é necessário que o servidor de API esteja em execução. O projeto back-end correspondente pode ser encontrado e configurado a partir do seguinte repositório:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   [**Project Manager API**](https://github.com/montanhes/project-manager-api)
 
-## Expanding the ESLint configuration
+Certifique-se de instalar e iniciar o projeto back-end antes de executar esta aplicação front-end.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Começando
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Pré-requisitos
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+*   Node.js (versão 20.x ou superior)
+*   npm ou yarn
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Instalação
+
+1.  Clone o repositório:
+    ```bash
+    git clone https://github.com/montanhes/project-manager-front.git
+    ```
+2.  Navegue até o diretório do projeto:
+    ```bash
+    cd project-manager-front
+    ```
+3.  Instale as dependências:
+    ```bash
+    npm install
+    ```
+
+### Executando a aplicação
+
+Para iniciar o servidor de desenvolvimento, execute:
+
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+A aplicação estará disponível em `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Executando com Docker (Alternativa)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Como alternativa à instalação local, você pode executar o projeto dentro de um contêiner Docker.
+
+**1. Instale o Docker**
+
+Primeiramente, certifique-se de que o Docker está instalado em sua máquina. Caso não esteja, siga as instruções oficiais de instalação para o seu sistema operacional:
+
+*   [**Instalar o Docker Engine**](https://docs.docker.com/engine/install/)
+
+**2. Construa a Imagem Docker**
+
+No diretório raiz do projeto, execute o seguinte comando para construir a imagem:
+
+```bash
+docker build -t project-manager-front .
 ```
+
+**3. Execute o Contêiner**
+
+Após a construção da imagem, inicie o contêiner com o comando abaixo:
+
+```bash
+docker run -p 5173:5173 project-manager-front
+```
+
+A aplicação também estará disponível em `http://localhost:5173`.
+
+## Build para produção
+
+Para criar uma build de produção, execute:
+
+```bash
+npm run build
+```
+
+## Linting
+
+Para executar o linter, use:
+
+```bash
+npm run lint
+```
+
+## Tecnologias Utilizadas
+
+*   **React:** Uma biblioteca JavaScript para construir interfaces de usuário.
+*   **TypeScript:** Um superconjunto tipado de JavaScript que compila para JavaScript puro.
+*   **Vite:** Uma ferramenta de build rápida que proporciona uma experiência de desenvolvimento veloz.
+*   **Axios:** Um cliente HTTP baseado em promises para o navegador e Node.js.
+*   **React Router:** Uma coleção de componentes de navegação que compõem declarativamente com sua aplicação.
+*   **Tailwind CSS:** Um framework CSS utility-first para construir designs personalizados rapidamente.
+*   **DaisyUI:** Uma biblioteca de componentes para Tailwind CSS.
