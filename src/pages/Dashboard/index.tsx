@@ -37,14 +37,13 @@ export function DashboardPage() {
         <ul className="menu bg-base-100 text-base-content min-h-full w-80 p-4">
           <li className="text-2xl font-bold p-4">Plan Marketing</li>
           <li><Link to="/projects">Projetos</Link></li>
-          <li><Link to="/projects/create">Novo Projeto</Link></li>
 
           <div className="mt-auto">
             <div className="p-4">
                 <p className="font-bold">{user?.name}</p>
                 <p className="text-sm text-gray-500">{user?.email}</p>
             </div>
-            <button className="btn btn-ghost w-full" onClick={handleLogout}>Sair</button>
+            <button className="btn btn-outline w-full" onClick={handleLogout}>Sair</button>
           </div>
         </ul>
       </div>
